@@ -1,0 +1,255 @@
+/*
+	██████╗ ███████╗███████╗███████╗████████╗
+	██╔══██╗██╔════╝██╔════╝██╔════╝╚══██╔══╝
+	██████╔╝█████╗  ███████╗█████╗     ██║   
+	██╔══██╗██╔══╝  ╚════██║██╔══╝     ██║   
+	██║  ██║███████╗███████║███████╗   ██║   
+	╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝   ╚═╝   
+											 
+*/
+
+body,
+#bodyTable,
+#bodyCell {
+	height: 100% !important;
+	margin: 0;
+	padding: 0;
+	width: 100% !important;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+img,
+a img {
+	border: 0;
+	outline: none;
+	text-decoration: none;
+/*	width: 100%;*/
+	height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+/*
+	 ██████╗██╗     ██╗███████╗███╗   ██╗████████╗███████╗
+	██╔════╝██║     ██║██╔════╝████╗  ██║╚══██╔══╝██╔════╝
+	██║     ██║     ██║█████╗  ██╔██╗ ██║   ██║   ███████╗
+	██║     ██║     ██║██╔══╝  ██║╚██╗██║   ██║   ╚════██║
+	╚██████╗███████╗██║███████╗██║ ╚████║   ██║   ███████║
+	 ╚═════╝╚══════╝╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝
+														  
+*/
+
+
+/* Force Hotmail/Outlook.com to display emails at full width. */
+.ReadMsgBody {
+	width: 100%;
+}
+.ExternalClass {
+	width: 100%;
+}
+
+/* Force Hotmail/Outlook.com to display line heights normally. */
+.ExternalClass,
+.ExternalClass p,
+.ExternalClass span,
+.ExternalClass font,
+.ExternalClass td,
+.ExternalClass div {
+	line-height: 100%;
+}
+
+/* Remove spacing between tables in Outlook 2007 and up. */
+table,
+td {
+	mso-table-lspace: 0pt;
+	mso-table-rspace: 0pt;
+}
+
+/* Force Outlook 2007 and up to provide a "view in browser" message. */
+#outlook a {
+	padding: 0;
+}
+
+/* Force IE to smoothly render resized images. */
+img {
+	-ms-interpolation-mode: bicubic;
+}
+
+/* Prevent Windows- and Webkit-based mobile platforms from changing declared text sizes. */
+body,
+table,
+td,
+p,
+a,
+li,
+blockquote {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+/*
+	███████╗████████╗██████╗ ██╗   ██╗ ██████╗████████╗██╗   ██╗██████╗ ███████╗
+	██╔════╝╚══██╔══╝██╔══██╗██║   ██║██╔════╝╚══██╔══╝██║   ██║██╔══██╗██╔════╝
+	███████╗   ██║   ██████╔╝██║   ██║██║        ██║   ██║   ██║██████╔╝█████╗  
+	╚════██║   ██║   ██╔══██╗██║   ██║██║        ██║   ██║   ██║██╔══██╗██╔══╝  
+	███████║   ██║   ██║  ██║╚██████╔╝╚██████╗   ██║   ╚██████╔╝██║  ██║███████╗
+	╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝  ╚═════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝
+	                                                                            
+*/
+
+
+/* The whole page */
+body,
+#body-table {
+	background-color: #f5f5f5;
+}
+
+/* The actual newsletter column. */
+#email-table {
+	background-color: white;
+	border-collapse: separate;
+	border-radius: 4px;
+}
+
+.nexus .column {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/*
+	████████╗███████╗██╗  ██╗████████╗
+	╚══██╔══╝██╔════╝╚██╗██╔╝╚══██╔══╝
+	   ██║   █████╗   ╚███╔╝    ██║   
+	   ██║   ██╔══╝   ██╔██╗    ██║   
+	   ██║   ███████╗██╔╝ ██╗   ██║   
+	   ╚═╝   ╚══════╝╚═╝  ╚═╝   ╚═╝   
+	                                  
+*/
+
+
+.text {
+	color: #505050;
+	font-family: Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 1.6;
+	text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: Helvetica, sans-serif;
+	line-height: 1.2;
+	margin: 1.4em 0 0.5em;
+}
+
+h1 {
+	margin-top: 0;
+	font-size: 1.602em;
+}
+
+h2 {
+	font-size: 1.424em;
+}
+
+h3 {
+	font-size: 1.266em;
+}
+
+h4,
+h5,
+h6 {
+	font-size: 1.125em;
+}
+
+p {
+	margin-bottom: 1.3em;
+}
+
+/* Larger text for single columns */
+
+.layout-single_column h1 {
+	margin-top: 0;
+	font-size: 5.063em;
+}
+
+.layout-single_column h2 {
+	font-size: 3.375em;
+}
+
+.layout-single_column h3 {
+	font-size: 2.25em;
+}
+
+.layout-single_column h4,
+.layout-single_column h5,
+.layout-single_column h6 {
+	font-size: 1.5em;
+}
+
+.text a {
+	color: #2C9AB7;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/*
+	███╗   ███╗ ██████╗ ██████╗ ██╗██╗     ███████╗
+	████╗ ████║██╔═══██╗██╔══██╗██║██║     ██╔════╝
+	██╔████╔██║██║   ██║██████╔╝██║██║     █████╗  
+	██║╚██╔╝██║██║   ██║██╔══██╗██║██║     ██╔══╝  
+	██║ ╚═╝ ██║╚██████╔╝██████╔╝██║███████╗███████╗
+	╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚═╝╚══════╝╚══════╝
+												   
+*/
+
+@media only screen and (max-width: 480px) {
+
+	/* CLIENT-SPECIFIC STYLES */    
+	
+	/* Force iOS Mail to render the email at full width. */
+	body {
+		width: 100% !important;
+		min-width: 100% !important;
+	}
+	
+	/* FRAMEWORK STYLES */
+	/*
+		CSS selectors are written in attribute
+		selector format to prevent Yahoo Mail
+		from rendering media query styles on
+		desktop.
+	*/
+	
+	table[id="email-table"],
+	table[class="column-container"] {
+		width: 100% !important;
+	}
+
+	.layout img {
+		width: 100% !important;
+		height: auto !important;
+	}
+}
