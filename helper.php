@@ -1,6 +1,11 @@
 <?php
 
-if( ! defined( 'ABSPATH' ) ) { exit; }// Exit if accessed directly
+// Exit if accessed directly
+if( ! defined( 'ABSPATH' ) ) { 
+	exit; 
+} 
+
+
 
 function mnltr_get_options() {
 
@@ -177,6 +182,8 @@ function mnltr_path_to_uri( $path ) {
 	}
 }
 
+
+
 /**
  * Checks whether a string starts with another string
  *
@@ -190,6 +197,8 @@ function mnltr_str_startswith( $haystack, $needle ) {
 
 	return substr( $haystack, 0, strlen( $needle ) ) === $needle;
 }
+
+
 
 /**
  * Replaces exactly one occurence of a string, if and only if it is found at the beginning of another string
@@ -215,6 +224,8 @@ function mnltr_str_replace_at_beginning( $search, $replace, $subject ) {
 
 	return $subject;
 }
+
+
 
 /**
  * Converts an array which contains both indexed and keyed values to an associative one.
@@ -263,6 +274,8 @@ function mnltr_array_mixed_to_assoc( $arr ) {
 	return $_arr;
 }
 
+
+
 function mnltr_debug( $thing ) {
 
 	if ( ! isset( $_GET[ 'mnltr_debug' ] ) || $_GET[ 'mnltr_debug' ] !== 'true' ) {
@@ -297,6 +310,8 @@ function mnltr_debug( $thing ) {
 		echo '</pre>';
 	}
 }
+
+
 
 function mnltr_is_newsletter_edit_screen_get_id() {
 
@@ -373,6 +388,8 @@ function mnltr_maybe_include_skin_functions_file() {
 	}
 }
 
+
+
 /**
  * Prepares a set of CSS files for emogrification, by converting the relative
  * URLs that they contain to absolute ones, and concatenating them to a single
@@ -405,6 +422,8 @@ function mnltr_prepare_css_for_emogrification( $file_uris ) {
 
 	return $output;
 }
+
+
 
 /**
  * Replaces relative urls in CSS properties with absolute ones, so that the rules
