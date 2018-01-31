@@ -29,8 +29,9 @@ function mnltr_templates_get_newsletter_data( $post_id = null ) {
 
 	$newsletter_data = array();
 
+	$newsletter_data['name']      = $skin_data['name'];
 	$newsletter_data['skin_path'] = $skin_data['skin_path'];
-	$newsletter_data['skin_uri'] = $skin_data['skin_uri'];
+	$newsletter_data['skin_uri']  = $skin_data['skin_uri'];
 
 	$newsletter_data['stylesheets'] = apply_filters( 'mnltr_newsletter_stylesheets',
 		array(

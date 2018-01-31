@@ -17,7 +17,10 @@
 
 
 
-    add_action( 'admin_print_footer_scripts', 'mnltr_cpt_tinymce_autogrow' );
+    // << Takis
+    add_filter( 'mce_css', 'mnltr_cpt_add_editor_styles', 999 );
+    add_action( 'admin_print_footer_scripts', 'mnltr_cpt_tinymce_autogrow', 999 );
+    // >> Takis
     
 
 

@@ -53,6 +53,11 @@ function mnltr_get_newsletter_cpt_name() {
 	return 'mnltr_newsletter';
 }
 
+function mnltr_get_default_editor_css_filename() {
+
+	return 'editor.css';
+}
+
 function mnltr_get_plugin_dir_path() {
 
 	return plugin_dir_path( __FILE__ );

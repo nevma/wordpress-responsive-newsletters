@@ -41,17 +41,15 @@ function mnltr_cpt_register() {
         'map_meta_cap' => true,
         'hierarchical' => false,
         'rewrite' => array (
-            
             'slug' => 'newsletter',
             'with_front' => true 
         ),
         'query_var' => true,
-        
         'supports' => array (
-            
             'title',
             'revisions',
-            'editor' 
+            'custom-fields',
+            'author' 
         ) 
     );
     
@@ -99,6 +97,8 @@ function mnltr_cpt_flush_rewrite_rules() {
      * type automatically grow or shrink to the size of its contents. This way
      * the editor produces no scrollbars, which is very handy when editing the
      * content of small -or not so small- newsletter columns. 
+     * 
+     * @return void
      */
 
     function mnltr_cpt_tinymce_autogrow () { 
@@ -107,49 +107,47 @@ function mnltr_cpt_flush_rewrite_rules() {
 
         $current_screen = get_current_screen();
 
-        if ( $current_screen->parent_base == 'edit.php' && 
-             $current_screen->post_type   == 'mnltr_newsletter' ) {
+        if ( $current_screen->parent_base != 'edit' || 
+             $current_screen->post_type   != mnltr_get_newsletter_cpt_name() ) {
             return;
         } ?>
 
-        <script type = "text/javascript">
-            jQuery( function ( $ ) {
-
-                // Sets the outer editor height to be same as the editor contents height.
-
-                function mnltr_cpt_fix_editor_height ( editor ) {
-
-                    var $iframe = $( editor.iframeElement );
-                    var $body = $( $iframe.get( 0 ).contentDocument.documentElement ).find( 'BODY' );
-                    var height = $body.outerHeight( true );
-                    
-                    $iframe.height( height );
-
-                }
-
-                // Fix editor height when it is initialised and when its contents change.
-
-                tinymce.on( 'SetupEditor', function ( editor ) {
-
-                    console.log( editor.id );
-
-                    if ( editor.id.indexOf( 'acf-editor-' ) < 0 ) {
-                        return;
-                    }
-
-                    editor.on( 'init', function ( event ) {
-                        mnltr_cpt_fix_editor_height( editor );
-                    });
-
-                    editor.on( 'change', function ( event ) {
-                        mnltr_cpt_fix_editor_height( editor );
-                    });
-
-                });
-                
-            });
-        </script> <?php
+        <script type = "text/javascript" src = "<?php echo mnltr_get_plugin_dir_uri() . 'js/mnltr_cpt_tinymce_autogrow.js'; ?>"></script> <?php
 
     };
+
+
+
+    /**
+     * Adds custom TinyMCE editor styles via a predefined editor.css file which
+     * may be found inside the current skin's directory. 
+     * 
+     * @return void
+     */
+
+    function mnltr_cpt_add_editor_styles ( $stylesheets ) {
+
+        // Only run for the newsletters post type. 
+
+        $current_screen = get_current_screen();
+
+        if ( $current_screen->parent_base != 'edit' || 
+             $current_screen->post_type   != mnltr_get_newsletter_cpt_name() ) {
+            return $stylesheets;
+        }
+
+        global $post;
+
+        $newsletter_data = mnltr_templates_get_newsletter_data( $post->ID );
+        $editor_file_css = trailingslashit( $newsletter_data['skin_path'] ) . mnltr_get_default_editor_css_filename();
+
+
+        if ( file_exists( $editor_file_css ) ) {
+            $stylesheets .= ',' . trailingslashit( $newsletter_data['skin_uri'] ) . mnltr_get_default_editor_css_filename();
+        }
+
+        return $stylesheets;
+
+    }
 
 ?>
