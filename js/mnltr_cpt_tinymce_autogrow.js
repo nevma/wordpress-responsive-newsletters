@@ -19,11 +19,21 @@ jQuery( function ( $ ) {
 
 
 
+    // Do nothing on pages without TinyMCE editors.
+
+    if ( typeof tinymce == 'undefined' ) {
+        return;
+    }
+
+
+
     // Fix editor height when it is initialised and when its contents change.
 
     var editors = [];
 
     tinymce.on( 'SetupEditor', function ( editor ) {
+
+        var editor = event.editor;
 
         if ( editor.id.indexOf( 'acf-editor-' ) < 0 ) {
             return;
