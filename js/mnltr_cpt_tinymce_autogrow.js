@@ -31,7 +31,7 @@ jQuery( function ( $ ) {
 
     var editors = [];
 
-    tinymce.on( 'SetupEditor', function ( editor ) {
+    tinymce.on( 'SetupEditor', function ( event ) {
 
         var editor = event.editor;
 
