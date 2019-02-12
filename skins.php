@@ -108,7 +108,8 @@ function mnltr_skins_get_built_in_skin_container_dir() {
  */
 function mnltr_skins_get_custom_skin_container_dir() {
 
-	return 'mnltr-skins';
+	return apply_filters( 'mntlr_skins_dir', 'mnltr-skins' );
+
 }
 
 /**

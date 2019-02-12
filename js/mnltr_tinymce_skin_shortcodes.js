@@ -33,7 +33,8 @@ tinymce.create( 'tinymce.plugins.MnltrTinymceShortcodes', {
 			var shortcode = shortcodes[i];
 			
 			editor.addButton( shortcodes[i], {
-				title : 'Button for ' + shortcodes[i],
+				text  : '[' + shortcodes[i] + ']',
+                title : 'Shortcode: ' + shortcodes[i],
 				onclick : function() {
 
 					return function( value ) {

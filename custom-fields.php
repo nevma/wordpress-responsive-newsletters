@@ -15,8 +15,7 @@ function mnltr_cf_register_custom_fields() {
 		'fields' => array(),
 		'location' => array(
 			array(
-				array(
-					
+				array(	
 					'param' => 'post_type',
 					'operator' => '==',
 					'value' => mnltr_get_newsletter_cpt_name(),
@@ -34,7 +33,6 @@ function mnltr_cf_register_custom_fields() {
 		'location' => array(
 			array(
 				array(
-					
 					'param' => 'post_type',
 					'operator' => '==',
 					'value' => mnltr_get_newsletter_cpt_name(),
@@ -100,7 +98,13 @@ function mnltr_cf_register_custom_fields() {
 		$layout_subfields = array();
 
 		// Create the classes sub-field (select)
-		$layout_classes = apply_filters( 'mnltr_layout_classes', array(), $layout['name'] );
+		$row_classes = array(
+            'first'     => 'First row',
+            'last'      => 'Last row',
+            'nexus'     => 'No horizontal paddings',
+            'compact'   => 'No vertical paddings'
+        );
+		$layout_classes = apply_filters( 'mnltr_layout_classes', $row_classes, $layout['name'] );
 
 		if ( ! is_array( $layout_classes ) ) {
 			$layout_classes = array();
@@ -122,7 +126,6 @@ function mnltr_cf_register_custom_fields() {
 			$col_index = $index + 1;
 
 			$layout_subfields[] = array(
-
 				'key' => $acf_fields[ $layout['name'] . '/column_' . $col_index ]['key'],
 				'name' => 'column_' . $col_index,
 				'label' => 'Column ' . $col_index,
@@ -187,9 +190,7 @@ function mnltr_cf_register_custom_fields() {
 	 * will no longer be needed, thus allowing for a faster admin page load.
 	 */
 	foreach( $acf_fields as $field ) {
-
 		if ( $field['type'] == 'field' ) {
-
 			wp_cache_delete( "get_field/key={$field['key']}", 'acf' );
 		}
 	}
@@ -201,48 +202,42 @@ function mnltr_cf_get_skin_choices_for_acf( $skins = null ) {
 		$skins = mnltr_skins_get_skins();
 	}
 	
-	$choices = array ();
+	$choices = array();
 	
 	foreach ( $skins as $skin ) {
-		
 		$choices[ mnltr_skins_shrink_skin_path( $skin[ 'skin_path' ] ) ] = $skin[ 'name' ];
 	}
 	
 	return $choices;
+
 }
 
 function mnltr_cf_get_skin( $post_id = null ) {
 
 	$shrinked_path = get_field( 'mnltr_skin', $post_id );
-	
 	$expanded_path = mnltr_skins_expand_skin_path( $shrinked_path );
-	
-	$skin = mnltr_skins_get_skin_data( $expanded_path );
+	$skin          = mnltr_skins_get_skin_data( $expanded_path );
 	
 	if ( is_wp_error( $skin ) ) {
-	
 		return mnltr_skins_get_skin_data( mnltr_skins_get_built_in_skin_container_path() . 'default' );
 	}
 	
 	return $skin;
+
 }
 
 function mnltr_cf_generate_acf_key( $type = null ) {
 
 	if ( $type === 'field' ) {
-
 		$prefix = 'field_';
-
 	} elseif ( $type === 'field_group' ) {
-
 		$prefix = 'group_';
-
 	} else {
-
 		$prefix = '';
 	}
 
 	return uniqid( $prefix );
+
 }
 
 /**

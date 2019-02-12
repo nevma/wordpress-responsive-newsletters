@@ -1,0 +1,18 @@
+ul, ol {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+li {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 1em;
+}
+
+ blockquote {
+    margin-left: 2em;
+    margin-right: 2em;
+}

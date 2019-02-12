@@ -18,10 +18,10 @@ function mnltr_shortcodes_init() {
 
 		// And add our handler for each one.
 		foreach ( $shortcodes as $name => $callback ) {
-
 			add_shortcode( $name, $callback ? $callback : 'mnltr_shortcodes_do_wrapper_shortcode' );
 		}
 	}
+
 }
 add_action( 'init', 'mnltr_shortcodes_init' );
 
@@ -29,10 +29,11 @@ function mnltr_shortcodes_add_tinymce_plugin() {
 
 	// Add the TinyMCE plugin that handles the shortcodes
 	add_filter( 'mce_external_plugins', 'mnltr_shortcodes_add_tinymce_plugin_js' );
-	add_filter( 'mce_buttons_2', 'mnltr_shortcodes_add_tinymce_buttons' );
+	add_filter( 'mce_buttons_3', 'mnltr_shortcodes_add_tinymce_buttons' );
 
 	// Print them to JS var so that they're available to the plugin
 	add_action( 'admin_head-post.php', 'mnltr_shortcodes_admin_head' );
+
 }
 
 function mnltr_shortcodes_add_tinymce_plugin_js( $plugin_array ) {
@@ -40,6 +41,7 @@ function mnltr_shortcodes_add_tinymce_plugin_js( $plugin_array ) {
 	$plugin_array['mnltrskinshortcodes'] = mnltr_get_plugin_dir_uri() . 'js/mnltr_tinymce_skin_shortcodes.js';
 
 	return $plugin_array;
+
 }
 
 function mnltr_shortcodes_add_tinymce_buttons( $buttons ) {
@@ -49,6 +51,7 @@ function mnltr_shortcodes_add_tinymce_buttons( $buttons ) {
 	$buttons = array_merge( $buttons, array_keys( $shortcodes ) );
 
 	return $buttons;
+
 }
 
 function mnltr_shortcodes_admin_head() {
@@ -58,6 +61,7 @@ function mnltr_shortcodes_admin_head() {
 	?><script type = "text/javascript">
 		var mnltr_skin_shortcodes = <?php echo json_encode( array_keys( $shortcodes ) ); ?>;
 	</script><?php
+
 }
 
 function mnltr_shortcodes_get_skin_shortcodes() {
@@ -81,17 +85,19 @@ function mnltr_shortcodes_get_skin_shortcodes() {
 	}
 
 	return $shortcodes;
+
 }
 
 function mnltr_shortcodes_do_wrapper_shortcode( $atts, $content, $shortcode ) {
 
 	return '<div class = "' . $shortcode . '">' . mnltr_shortcodes_wpautopbr( do_shortcode( $content ) ) . '</div>';
+
 }
 
 /**
  * Takes a string which is meant to have been produced by TinyMCE and 
  * possibly contains shortcodes and removes any extraneous opening and 
- * closing paragrpahs or breaking lines from its beginning or end.
+ * closing paragraphs or breaking lines from its beginning or end.
  * 
  * @param string $content The input string to clean.
  * 
@@ -112,6 +118,7 @@ function mnltr_shortcodes_wpautopbr ( $content ) {
 		'/';
 
 	return preg_replace( $regexp, '', $content );
+
 }
 
 /**
@@ -145,6 +152,7 @@ function mnltr_shortcodes_sanitize_shortcode_name( $shortcode_name ) {
 
 
 	return $shortcode_name;
+
 }
 
 function mnltr_shortcodes_sanitize( $shortcodes ) {
@@ -156,12 +164,12 @@ function mnltr_shortcodes_sanitize( $shortcodes ) {
 		$name = mnltr_shortcodes_sanitize_shortcode_name( $name );
 
 		if ( $name && ( is_string( $callback ) || is_null( $callback ) ) ) {
-
 			$_shortcodes[ $name ] = $callback;
 		}
 	}
 
 	return $_shortcodes;
+
 }
 
 ?>

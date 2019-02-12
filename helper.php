@@ -10,11 +10,13 @@ if( ! defined( 'ABSPATH' ) ) {
 function mnltr_get_options() {
 
 	return get_option( 'mnltr_options' );
+
 }
 
 function mnltr_save_options( $options ) {
 
 	update_option( 'mnltr_options', $options, false );
+
 }
 
 function mnltr_get_option( $option ) {
@@ -22,6 +24,7 @@ function mnltr_get_option( $option ) {
 	$options = mnltr_get_options();
 
 	return isset( $options[ $option ] ) ? $options[ $option ] : false;
+
 }
 
 function mnltr_save_option( $option, $value ) {
@@ -41,51 +44,62 @@ function mnltr_save_option( $option, $value ) {
 	$options[ $option ] = $value;
 
 	mnltr_save_options( $options );
+
 }
 
 function mnltr_get_plugin_name() {
 
 	return 'Modular Newsletters';
+
 }
 
 function mnltr_get_newsletter_cpt_name() {
 
 	return 'mnltr_newsletter';
+
 }
 
 function mnltr_get_default_editor_css_filename() {
 
 	return 'editor.css';
+
 }
 
 function mnltr_get_plugin_dir_path() {
 
 	return plugin_dir_path( __FILE__ );
+
 }
 
 function mnltr_get_plugin_dir_uri() {
 
 	// plugin_dir_uri's returned value isn't trailing slashed
 	return trailingslashit( plugin_dir_url( __FILE__ ) );
+
 }
 
 function mnltr_get_templates_dir_path() {
 
 	return mnltr_get_plugin_dir_path() . 'templates/';
+
 }
 
 function mnltr_get_templates_dir_uri() {
+	
 	return mnltr_path_to_uri( mnltr_get_templates_dir_path() );
+
 }
 
 function mnltr_plugin_file() {
 
 	return mnltr_get_plugin_dir_path() . 'modular-newsletters.php';
+
 }
 
 function mnltr_log_file() {
 
 	return mnltr_get_plugin_dir_path() . 'mnltr_log.txt';
+
 }
 
 function mnltr_get_requested_url() {
@@ -93,6 +107,7 @@ function mnltr_get_requested_url() {
 	$protocol = ! empty( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] !== 'off' ? "https://" : "http://";
 
 	return $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
 }
 
 function mnltr_admin_notices( $message = null, $notice_class = 'info', $is_dismissible = true ) {
@@ -101,19 +116,16 @@ function mnltr_admin_notices( $message = null, $notice_class = 'info', $is_dismi
 
 	// Initialize notices array on first call
 	if ( is_null( $notices ) ) {
-
 		$notices = array();
 	}
 
 	// Don't attempt to add a notice if not in admin
 	if ( ! is_admin() ) {
-
 		return;
 	}
 
 	// If no message is added, return the stored notices
 	if ( is_null( $message ) ) {
-
 		return $notices;
 	}
 
@@ -313,13 +325,14 @@ function mnltr_debug( $thing ) {
 		echo '<pre>';
 		echo "$data\n";
 		echo '</pre>';
+
 	}
+
 }
 
 
 
 function mnltr_is_newsletter_edit_screen_get_id() {
-
 
 	// Keep the result within the request.
 	static $post_id;
@@ -352,6 +365,7 @@ function mnltr_is_newsletter_edit_screen_get_id() {
 	}
 	
 	return $post_id;
+
 }
 
 function mnltr_is_single_newsletter_get_id() {
@@ -369,7 +383,8 @@ function mnltr_is_single_newsletter_get_id() {
 		return $post_id;
 	}
 
-	return false;	
+	return false;
+
 }
 
 function mnltr_maybe_include_skin_functions_file() {
@@ -391,6 +406,7 @@ function mnltr_maybe_include_skin_functions_file() {
 			include_once $skin_data['functions_path'];
 		}
 	}
+
 }
 
 
@@ -426,6 +442,7 @@ function mnltr_prepare_css_for_emogrification( $file_uris ) {
 	}
 
 	return $output;
+
 }
 
 
@@ -448,6 +465,7 @@ function mnltr_css_urls_relative_to_absolute( $css, $css_root_url ) {
 	$css_root_url = trailingslashit( $css_root_url );
 
 	return preg_replace( '/([:\s]url\([\'"]?)(?![\'"]?(https?:)?\/\/)/', '${1}' . $css_root_url, $css );
+	
 }
 
 ?>

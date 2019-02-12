@@ -29,7 +29,6 @@ function mnltr_cpt_register() {
     );
     
     $args = array (
-        
         'labels' => $labels,
         'description' => '',
         'public' => true,
@@ -40,6 +39,7 @@ function mnltr_cpt_register() {
         'capability_type' => 'post',
         'map_meta_cap' => true,
         'hierarchical' => false,
+        'menu_icon' => 'dashicons-email-alt',
         'rewrite' => array (
             'slug' => 'newsletter',
             'with_front' => true 
@@ -47,17 +47,19 @@ function mnltr_cpt_register() {
         'query_var' => true,
         'supports' => array (
             'title',
+            'thumbnail',
             'revisions',
             'custom-fields',
-            'author' 
+            'author' ,
+            'page-attributes'
         ) 
     );
     
     if ( is_wp_error( register_post_type( mnltr_get_newsletter_cpt_name(), $args ) ) ) {
 
         mnltr_admin_notices( 'Failed to register Newsletter custom post type.', 'error' );
-
         return false;
+
     }
 
     return true;
@@ -72,21 +74,37 @@ function mnltr_cpt_unregister() {
     if ( isset( $wp_post_types[ $post_type ] ) ) {
         
         unset( $wp_post_types[ $post_type ] );
-        
         return true;
+
     }
+
     return false;
+
 }
 
 function mnltr_cpt_registered() {
 
     return post_type_exists( mnltr_get_newsletter_cpt_name() );
+
 }
 
 function mnltr_cpt_flush_rewrite_rules() {
 
     mnltr_cpt_register();
     flush_rewrite_rules( false );
+
+}
+
+function mnltr_cpt_is_newsletter_edit_screen () {
+
+    $current_screen = get_current_screen();
+
+    $is_newsletter_edit_screen = 
+        $current_screen->parent_base == 'edit' && 
+        $current_screen->post_type   == mnltr_get_newsletter_cpt_name();
+
+    return $is_newsletter_edit_screen;
+
 }
 
 
@@ -105,10 +123,7 @@ function mnltr_cpt_flush_rewrite_rules() {
 
         // Only run for the newsletters post type. 
 
-        $current_screen = get_current_screen();
-
-        if ( $current_screen->parent_base != 'edit' || 
-             $current_screen->post_type   != mnltr_get_newsletter_cpt_name() ) {
+        if ( ! mnltr_cpt_is_newsletter_edit_screen() ) {
             return;
         } ?>
 
@@ -129,10 +144,7 @@ function mnltr_cpt_flush_rewrite_rules() {
 
         // Only run for the newsletters post type. 
 
-        $current_screen = get_current_screen();
-
-        if ( $current_screen->parent_base != 'edit' || 
-             $current_screen->post_type   != mnltr_get_newsletter_cpt_name() ) {
+        if ( ! mnltr_cpt_is_newsletter_edit_screen() ) {
             return $stylesheets;
         }
 

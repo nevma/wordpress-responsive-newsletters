@@ -1,0 +1,512 @@
+/************************************************
+
+    ██████╗ ███████╗███████╗███████╗████████╗
+    ██╔══██╗██╔════╝██╔════╝██╔════╝╚══██╔══╝
+    ██████╔╝█████╗  ███████╗█████╗     ██║   
+    ██╔══██╗██╔══╝  ╚════██║██╔══╝     ██║   
+    ██║  ██║███████╗███████║███████╗   ██║   
+    ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝   ╚═╝   
+                                             
+ ************************************************/
+
+
+
+    body,
+    #bodyTable,
+    #bodyCell {
+        height: 100% !important;
+        margin: 0;
+        padding: 0;
+        width: 100% !important;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    img,
+    a img {
+        border: 0;
+        outline: none;
+        text-decoration: none;
+        height: auto;
+    }
+
+    /* Reset text elements margins and paddings, but not blockquote, ul, ol and li. */
+
+    body, p, a td {
+        margin: 0;
+        padding: 0;
+    }
+
+    .text table {
+        word-break: break-all;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+
+
+/*************************************************************
+
+     ██████╗██╗     ██╗███████╗███╗   ██╗████████╗███████╗
+    ██╔════╝██║     ██║██╔════╝████╗  ██║╚══██╔══╝██╔════╝
+    ██║     ██║     ██║█████╗  ██╔██╗ ██║   ██║   ███████╗
+    ██║     ██║     ██║██╔══╝  ██║╚██╗██║   ██║   ╚════██║
+    ╚██████╗███████╗██║███████╗██║ ╚████║   ██║   ███████║
+     ╚═════╝╚══════╝╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝
+                                                          
+ *************************************************************/
+
+
+
+    /* Force Hotmail/Outlook.com to display emails at full width. */
+
+    .ReadMsgBody {
+        width: 100%;
+    }
+
+    .ExternalClass {
+        width: 100%;
+    }
+
+    /* Force Hotmail/Outlook.com to display line heights normally. */
+
+    .ExternalClass,
+    .ExternalClass p,
+    .ExternalClass span,
+    .ExternalClass font,
+    .ExternalClass td,
+    .ExternalClass li,
+    .ExternalClass div {
+        line-height: 100%;
+    }
+
+    /* Remove spacing between tables in Outlook 2007 and up. */
+
+    table, 
+    td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+    }
+
+    /* Force Outlook 2007 and up to provide a "view in browser" message. */
+
+    #outlook a {
+        padding: 0;
+    }
+
+    /* Force IE to smoothly render resized images. */
+
+    img {
+        -ms-interpolation-mode: bicubic;
+    }
+
+    /* Prevent Windows and Webkit-based mobile platforms from changing declared text sizes. */
+
+    body, h1, h2, h3, h4, h5, h6, p, a, blockquote, table, td, ul, ol, li {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+
+
+
+/***********************************************************************************
+
+    ███████╗████████╗██████╗ ██╗   ██╗ ██████╗████████╗██╗   ██╗██████╗ ███████╗
+    ██╔════╝╚══██╔══╝██╔══██╗██║   ██║██╔════╝╚══██╔══╝██║   ██║██╔══██╗██╔════╝
+    ███████╗   ██║   ██████╔╝██║   ██║██║        ██║   ██║   ██║██████╔╝█████╗  
+    ╚════██║   ██║   ██╔══██╗██║   ██║██║        ██║   ██║   ██║██╔══██╗██╔══╝  
+    ███████║   ██║   ██║  ██║╚██████╔╝╚██████╗   ██║   ╚██████╔╝██║  ██║███████╗
+    ╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝  ╚═════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝
+                                                                                
+ ***********************************************************************************/
+
+
+
+    /* The whole page */
+
+    body,
+    #body-table {
+        background-color: #f5f5f5;
+    }
+
+
+
+    /* The actual newsletter column. */
+
+    #email-table {
+        background-color: white;
+        border-collapse: separate;
+        border-radius: 3px;
+        margin: 3rem auto;
+    }
+
+
+
+    /* Column with contents. */
+
+    .column {
+        padding-top: 0.65em;
+        padding-bottom: 0.65em;
+    }
+
+    .nexus .column {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .compact .column {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .debug .column {
+        outline: 1px dashed lightgray;
+    }
+
+
+
+    /* Email header. */
+
+    .header {
+    }
+
+        .header .column {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+
+
+    /* Email footer. */
+
+    .footer {
+    }
+
+
+
+/*****************************************************************************************************************************
+
+    ██╗   ██╗███████╗██████╗ ████████╗██╗ ██████╗ █████╗ ██╗         ██████╗ ██╗  ██╗██╗   ██╗████████╗██╗  ██╗███╗   ███╗
+    ██║   ██║██╔════╝██╔══██╗╚══██╔══╝██║██╔════╝██╔══██╗██║         ██╔══██╗██║  ██║╚██╗ ██╔╝╚══██╔══╝██║  ██║████╗ ████║
+    ██║   ██║█████╗  ██████╔╝   ██║   ██║██║     ███████║██║         ██████╔╝███████║ ╚████╔╝    ██║   ███████║██╔████╔██║
+    ╚██╗ ██╔╝██╔══╝  ██╔══██╗   ██║   ██║██║     ██╔══██║██║         ██╔══██╗██╔══██║  ╚██╔╝     ██║   ██╔══██║██║╚██╔╝██║
+     ╚████╔╝ ███████╗██║  ██║   ██║   ██║╚██████╗██║  ██║███████╗    ██║  ██║██║  ██║   ██║      ██║   ██║  ██║██║ ╚═╝ ██║
+      ╚═══╝  ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝    ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚═╝  ╚═╝╚═╝     ╚═╝
+
+ *****************************************************************************************************************************/
+
+
+
+    /* Usual text elements. */
+
+    p           + p,
+
+    p           + blockquote, 
+    p           + ul, 
+    p           + ol, 
+    p           + h2,
+    p           + h3,
+    p           + h4,
+    p           + h5,
+    p           + h6,
+
+    blockquote  + p, 
+    ul          + p, 
+    ol          + p, 
+
+    blockquote  + blockquote, 
+
+    blockquote  + ul, 
+    blockquote  + ol, 
+    blockquote  + h2,
+    blockquote  + h3,
+    blockquote  + h4,
+    blockquote  + h5,
+    blockquote  + h6,
+
+    ol          + blockquote,
+    ul          + blockquote, 
+
+    ul          + ul, 
+
+    ul          + ol, 
+    ul          + blockquote, 
+    ul          + h2,
+    ul          + h3,
+    ul          + h4,
+    ul          + h5,
+    ul          + h6,
+    ol          + ul,
+    blockquote  + ul, 
+
+    ol          + ol, 
+    
+    ol          + ul, 
+    ol          + blockquote, 
+    ol          + h2,
+    ol          + h3,
+    ol          + h4,
+    ol          + h5,
+    ol          + h6,
+    ul          + ol,
+    blockquote  + ol,
+
+    /* Tables. */
+
+    .text table + p,
+    .text table + blockquote,
+    .text table + ol,
+    .text table + ul,
+
+    .text table + h2,
+    .text table + h3,
+    .text table + h4,
+    .text table + h5,
+    .text table + h6 {
+        margin-top: 1.3em;
+    }
+
+    /* Headings. */
+
+    h1          + p,
+    h2          + p,
+    h3          + p,
+    h4          + p,
+    h5          + p,
+    h6          + p,
+    
+    h1          + blockquote,
+    h2          + blockquote,
+    h3          + blockquote,
+    h4          + blockquote,
+    h5          + blockquote,
+    h6          + blockquote,
+    
+    h1          + ol,
+    h2          + ol,
+    h3          + ol,
+    h4          + ol,
+    h5          + ol,
+    h6          + ol,
+    
+    h1          + ul,
+    h2          + ul,
+    h3          + ul,
+    h4          + ul,
+    h5          + ul,
+    h6          + ul,
+    
+    h1          + table,
+    h2          + table,
+    h3          + table,
+    h4          + table,
+    h5          + table,
+    h6          + table {
+        margin-top: 0.5em;
+    }
+
+
+
+/*****************************************
+
+    ████████╗███████╗██╗  ██╗████████╗
+    ╚══██╔══╝██╔════╝╚██╗██╔╝╚══██╔══╝
+       ██║   █████╗   ╚███╔╝    ██║   
+       ██║   ██╔══╝   ██╔██╗    ██║   
+       ██║   ███████╗██╔╝ ██╗   ██║   
+       ╚═╝   ╚══════╝╚═╝  ╚═╝   ╚═╝   
+                                      
+ *****************************************/
+
+
+
+    .text {
+        color: #505050;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: Baskerville, Georgia, serif;
+        line-height: 1.2;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    h1 {
+        font-size: 2.25em;
+    }
+
+    h2 {
+        font-size: 1.85em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    h4,
+    h5,
+    h6 {
+        font-size: 1.4em;
+    }
+
+    .text table {
+        width: 100%;
+    }
+
+    .text td,
+    .text th {
+        padding: 0 5px;
+        vertical-align: middle;
+    }
+
+    .text thead td, 
+    .text th {
+        font-weight: bold;
+    }
+
+    blockquote {
+        text-align: center;
+        font-family: Baskerville, Georgia, serif;
+        font-size: 1.25em;
+        font-weight: bold;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 1.5em;
+        margin-right: 1.5em;
+    }
+
+    ul {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 1.5em;
+        margin-right: 1.5em;
+    }
+
+    ol {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 1.75em;
+        margin-right: 1.75em;
+    }
+
+    ul li {
+        padding-left: 0.5em;
+        padding-right: 1em;
+    }
+
+    ol li {
+        padding-left: 0.5em;
+        padding-right: 1em;
+    }
+
+    /* Larger text for single columns */
+
+    .text a {
+        color: #0000ff;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        vertical-align: middle;
+    }
+
+    .mnltr-natural-width-image {
+        text-align: center;
+    }
+
+    .mnltr-spacer td,
+    .mnltr-spacer-table td {
+        background: transparent;
+        border: none;
+        height: 1.3em;
+        line-height: 1.3em;
+        font-size: 1.3em;
+        margin: 0;
+        padding: 0;
+    }
+
+    .debug .mnltr-spacer,
+    .debug .mnltr-spacer-table {
+        margin-bottom: 3px !important;
+    }
+
+        .debug .mnltr-spacer td,
+        .debug .mnltr-spacer-table td {
+            outline: 1px dashed lightgray;
+        }
+
+
+
+/******************************************************
+
+    ███╗   ███╗ ██████╗ ██████╗ ██╗██╗     ███████╗
+    ████╗ ████║██╔═══██╗██╔══██╗██║██║     ██╔════╝
+    ██╔████╔██║██║   ██║██████╔╝██║██║     █████╗  
+    ██║╚██╔╝██║██║   ██║██╔══██╗██║██║     ██╔══╝  
+    ██║ ╚═╝ ██║╚██████╔╝██████╔╝██║███████╗███████╗
+    ╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚═╝╚══════╝╚══════╝
+                                                   
+ ******************************************************/
+
+
+
+@media only screen and (max-width: 480px) {
+    
+    /* Force iOS Mail to render the email at full width. */
+
+    body {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+    
+    /* Attribute selectors format to prevent Yahoo Mail from rendering media query styles on desktop. */
+    
+    table[id="email-table"],
+    table[class="column-container"] {
+        width: 100% !important;
+    }
+
+    #email-table {
+        margin: 0 auto;
+    }
+
+    .layout img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Mobile font size fixes. */
+
+    h1 {
+        font-size: 2.0em !important;
+    }
+
+    h2 {
+        font-size: 1.75em !important;
+    }
+
+    h3 {
+        font-size: 1.5em !important;
+    }
+
+    h4,
+    h5,
+    h6 {
+        font-size: 1.5em !important;
+    }
+
+}

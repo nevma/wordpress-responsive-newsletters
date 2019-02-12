@@ -12,6 +12,7 @@
     require_once 'helper.php';
     require_once 'skins.php';
     require_once 'templates.php';
+    require_once 'formats.php';
     require_once 'shortcodes.php';
     require_once 'classes/Emogrifier/Emogrifier.php';
 
@@ -48,6 +49,7 @@
 
             mnltr_admin_notices( 'A plugin initialization error occured. Please contact support.', 'error' );
             return;
+            
         }
 
         if ( mnltr_is_newsletter_edit_screen_get_id() ) {

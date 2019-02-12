@@ -1,0 +1,54 @@
+/**
+ * TinyMCE editor styles.
+ */
+
+.mnltr-natural-width-image,
+.mnltr-compact-width-image {
+    text-align: center;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px dashed lightgray;
+    position: relative;
+}
+
+    .mnltr-natural-width-image::after,
+    .mnltr-compact-width-image::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 3px;
+        border-bottom: 1px dashed lightgray;
+        border-left: 1px dashed lightgray;
+        border-radius: 3px;
+        font-size: 10px;
+    }
+
+    .mnltr-natural-width-image::after {
+        content: 'Natural width image';
+    }
+
+    .mnltr-compact-width-image::after {
+        content: 'Compact width image';
+    }
+
+
+
+.mnltr-spacer {
+    border: 1px dashed lightgray;
+    background: none;
+    height: 2em;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+    .mnltr-spacer::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 3px;
+        border-bottom: 1px dashed lightgray;
+        border-left: 1px dashed lightgray;
+        border-radius: 3px;
+        font-size: 10px;
+        content: 'Spacer';
+    }
