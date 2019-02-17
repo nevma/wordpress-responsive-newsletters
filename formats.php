@@ -13,7 +13,7 @@
         // Only run for the newsletters post type. 
 
         if ( ! mnltr_cpt_is_newsletter_edit_screen() ) {
-            return;
+            return $formats;
         }
 
         // Initialise formats array if necessary.
