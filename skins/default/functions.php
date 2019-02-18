@@ -103,7 +103,7 @@
         preg_match( '/<a.*href="([^"]*)"/i', $content, $matches );
         $url = $matches[1];
 
-        $width         = strlen( $text ) * 8;
+        $width         = mb_strlen( $text ) * 12;
         if ( $atts['type'] == 'wide' ) {
             $width = $width*1.5;
         }
