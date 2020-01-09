@@ -42,7 +42,7 @@ function mnltr_cpt_register() {
         'menu_icon' => 'dashicons-email-alt',
         'rewrite' => array (
             'slug' => 'newsletter',
-            'with_front' => true 
+            'with_front' => false 
         ),
         'query_var' => true,
         'supports' => array (
