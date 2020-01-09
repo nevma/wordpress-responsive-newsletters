@@ -3,7 +3,7 @@
  * Plugin Name: Responsive Newsletters
  * Plugin URI: http://www.nevma.gr
  * Description: Create responsive Newsletters from within your WordPress site.
- * Version: 2.0.0
+ * Version: 2.0.1
  * Author: Nevma
  * Author URI: http://www.nevma.gr
  * License: GPLv2 or later
