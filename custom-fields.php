@@ -105,6 +105,7 @@ function mnltr_cf_register_custom_fields() {
             'compact'   => 'No vertical paddings'
         );
 		$layout_classes = apply_filters( 'mnltr_layout_classes', $row_classes, $layout['name'] );
+		asort( $layout_classes );
 
 		if ( ! is_array( $layout_classes ) ) {
 			$layout_classes = array();
@@ -114,7 +115,8 @@ function mnltr_cf_register_custom_fields() {
 			'key' => $acf_fields[ $layout['name'] . '/classes' ]['key'],
 			'name' => 'mnltr_layout_classes',
 			'label' => 'Layout Types',
-			'type' => 'select',
+			'type' => 'checkbox',
+			'layout' => 'horizontal',
 			'choices' => $layout_classes,
 			'multiple' => 1,
 			'ui' => 1,
