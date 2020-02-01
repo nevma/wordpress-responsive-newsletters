@@ -1,3 +1,4 @@
+
 # WordPress Responsive Newsletters
 
 A WordPress plugin that helps create beautiful, robust and responsive HTML newsletters. 
@@ -13,21 +14,21 @@ body >
       td >
         table#email-table >
           tr >
-            td.row > 
-            ========
+            td.row >  // VERTICAL PADDINGS HERE
+            ========  // HORIZONTAL PADDINGS HERE
               table(centering) >
                 tr > 
                   td > 
                     table(flexible) >
                       tr > 
                         td > 
-                          [if(mso) table]
-                          table.column-container >
+                          [if(mso) table>tr>td]
+                          table.column-container(responsive) > 
                             tr >
-                              td.column >
-                              ===========
-                                div.column-content >
-                                ====================
+                              td.column > // HORIZONTAL PADDINGS COME FROM SKIN
+                              =========== // VERTICAL PADDINGS HERE
+                                div.column-content > // OPTIONAL HORIZONTAL PADDINGS HERE
+                                ==================== // OPTIONAL VERTICTAL PADDINGS HERE
                                   [            ]
                                   [  contents  ]
                                   [            ]

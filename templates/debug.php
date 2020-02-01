@@ -13,7 +13,7 @@
                name = "debug"
                id = "debug"
                value = "true"
-               <?php echo $_GET['debug'] == 'true' ? 'checked' : ''; ?>
+               <?php echo ( isset( $_GET['debug'] ) && $_GET['debug'] == 'true' ) ? 'checked' : ''; ?>
                onchange = "this.form.submit()" />
         Debug
 
@@ -28,7 +28,7 @@
                name = "emogrify"
                id = "emogrify"
                value = "false"
-               <?php echo $_GET['emogrify'] == 'false' ? 'checked' : ''; ?>
+               <?php echo ( isset( $_GET['emogrify'] ) && $_GET['emogrify'] ) == 'false' ? 'checked' : ''; ?>
                onchange = "this.form.submit()" />
         No emogrify
 
