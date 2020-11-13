@@ -76,6 +76,8 @@ if ( mnltr_templates_should_emogrify() ) {
 	$emogrifier = new \Pelago\Emogrifier( $html, $css );
 	$html = $emogrifier->emogrify();
 	
+	$html = apply_filters( 'mnltr_html', $html );
+	
 }
 
 echo $html;
