@@ -146,6 +146,10 @@ function mnltr_skins_get_skins_in_container( $skin_container ) {
 			$skins[] = $skin_data;
 		}
 	}
+
+	usort( $skins, function( $skin1, $skin2 ) {
+		return $skin1['name'] > $skin2['name'];
+	});
 	
 	return $skins;
 }
