@@ -47,7 +47,7 @@
 
         if ( ! mnltr_cpt_registered() ) {
 
-            mnltr_admin_notices( 'A plugin initialization error occured. Please contact support.', 'error' );
+            mnltr_admin_notices( 'The newsletters custom post type has not been created.', 'error' );
             return;
             
         }
